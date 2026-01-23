@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perceptrón para un vehículo autónomo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="titleWrap">
+      <h1 class="title">Perceptrón para un vehículo autónomo</h1>
+      <p class="subtitle">Simulación de decisiones (cerca/lejos) y (lento/rápido) + comportamiento de frenado</p>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <section class="leftCard">
+      <canvas id="graph"></canvas>
+
+      <div class="modePanel">
+        <div class="modeLabel">Modo de conducción</div>
+        <div class="controls">
+          <button class="btn btn-prudente" id="btnPrudente">Prudente</button>
+          <button class="btn btn-arriesgada" id="btnArriesgada">Arriesgada</button>
+          <button class="btn btn-timida" id="btnTimida">Tímida</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <canvas id="road"></canvas>
+
+      <div class="speed-wrap">
+        <svg id="speedo" width="220" height="220" viewBox="0 0 220 220">
+          <path id="arc-bg" d="M 40 140 A 70 70 0 1 1 180 140"
+                fill="none" stroke-width="16" stroke-linecap="round"/>
+          <path id="arc-val" d="M 40 140 A 70 70 0 1 1 180 140"
+                fill="none" stroke-width="16" stroke-linecap="round"/>
+
+          <g id="needle" transform="rotate(-135 110 140)">
+           <line id="needleLine" x1="110" y1="140" x2="170" y2="140" stroke-width="6" stroke-linecap="round"/>
+            <circle id="needleHub" cx="110" cy="140" r="10"/>
+          </g>
+
+          <text id="spdText" x="110" y="128" text-anchor="middle">0</text>
+          <text x="110" y="155" text-anchor="middle" class="spdLabel">km/h</text>
+        </svg>
+      </div>
+
+      <div class="pedals">
+        <div id="brake" class="pedal">Frenar</div>
+        <div id="gas" class="pedal">Acelerar</div>
+      </div>
+
+      <input id="speed" class="speedometer" type="range" min="0" max="120" value="0" disabled />
+    </section>
+  </main>
+
+  <div id="secret-button" title=":D"></div>
+  <div id="secret-modal">
+    <img src="secreto.png" alt="secreto">
+  </div>
+
+  
+
+<button id="themeToggle" class="theme-btn">🌙</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
